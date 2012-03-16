@@ -15,7 +15,9 @@ typedef struct {
 #define INTS(_bs) (((_bs->len-1) >> 6) + 1)
 
 Bitset * bitset_new() {
-    return (Bitset *) malloc(sizeof(Bitset));
+    Bitset* ret = (Bitset *) malloc(sizeof(Bitset));
+    memset(ret, 0, sizeof(Bitset));
+    return ret;
 }
 
 void bitset_setup(Bitset * bs, int len) {
